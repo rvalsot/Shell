@@ -111,7 +111,7 @@ read -p "Prompted message: " VARIABLE
 echo "Archiving user: " $USER
 ```
 
-## Exam 1:
+### Exam 1:
 
 1. Out of the following options, which one would be the first line of a shell script?: _Would be:_ `#! /bin/bash`. $\checkmark$
 2. The first line of a shell script typically starts with a shebang followed by the path to an interpreter that will be used to execute the commands in the script: _True_. $\checkmark$
@@ -142,7 +142,95 @@ __Logical Operators__
 
 Note: second command in a `&&` will only execute if the first part return code is success! Analogously, if a `||` previous status is not success, second part will run.
 
+Semicolon `;` is the end of line and helps you ensure all your single-line commands are executed.
 
+You can specify exit status numbers ranging from $\{0,1,...,255\}$ to know what happened with the `exit n` command.
+
+### Exam 2
+
+1. All commands, including shell scripts, return an exit status: _True_.
+2. What are the valid exit statuses? _0-255_
+3. Which special variable contains the value of the exist status of the previously executed command? _It is_: `$?`
+4. What symbol means "AND"? _It is_: `&&`
+5. Which symbol means "OR"? _It is_: `||`
+6. In the sample `mkdir /tmp && cp test.txt /tmp`, if the first part fails, the second will be executed? _False_
+7. Commands separated by semicolon will be executed no matter the exit status of the previous command. _True_
+8. What is the exit status of script: _Will be the one of the `uptime` command_
+``` sh
+#! /bin/bash
+hostname
+uptime
+```
+9. If you want to control the exit status of a shell script, what command should you use? _You should use_: `exit n`
+
+9/9
+
+## Functions
+
+Objectives:
+* Why use them, how to create them, how to use them, their parameters
+* Variables' scope
+* Exit statuses and return codes
+
+Functions are part of DRY philosophy. They standard declaration and use are:
+``` sh
+function function_name () {
+  # do something...
+}
+# Or just:
+function_name () {
+  #do something...
+}
+
+# Use it:
+function_name
+```
+
+Gotta declare them before use, they're not pre-compiled.
+
+Functions can accept parameters, stored as positional ones an accessed via `$n`.
+
+__Scope__
+
+_Global Variables_: By default, all variables are global and should be used before defined.
+Variables defined inside functions are available out until you call them.
+_Local Variables_: are made with the `local MY_VARIABLE` keyword, they can be used only inside functions.
+
+__Exit Status__
+
+Functions have exit status, which can be explicitly used with: `return <RETURN_CODE>` or implicitly are the las command exit status.
+
+### Exam 3:
+
+1. In programming, DRY stands for: _"Don't Repeat Yourself"_
+2. Functions allow you to:
+    * _Write a block of code once and use it multiple times_
+    * _Potentially reduce the length of your shell script_
+    * _Maintain your scripts by reducing the number of places you need to edit and troubleshoot_
+3. Functions can be defined anywhere in a script and be used at any time during a shell script: _False_
+4. What is the proper way to call a function: _As plain as_: `function_name`
+5. What is the output of a function using `$2`: _The second given parameter_
+6. By default, all variables all local in scope: _False_.
+7. You should precede with which keyword to make variables local: _With_: `local VARIABLE_NAME`
+8. Which command will cause a function to return an exit status of 1: _It will be_: `return 1`
+
+## Complementary Sources
+
+Extras for the Course
+* [Variables](http://www.thegeekstuff.com/2010/05/bash-variables/)
+
+## Wildcards
+
+## Templates
+
+A suggested Shell Script Order / Checklist is:
+
+1. `shebang`
+2. Comments/ file header / author references
+3. Global Variables declaration
+4. Functions (and their local variables first)
+5. Main script contents
+6. Exit with a defined `exit <STATUS>` at needed points.
 
 ## Miscellany
 
