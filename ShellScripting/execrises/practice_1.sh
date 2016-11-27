@@ -43,6 +43,16 @@ echo
 echo "6)"
 read -p "Looking for file: " USER_FILE_NAME
 
+if [[ -d ${USER_FILE_NAME} ]]
+then
+  echo "It is a directory"
+else
+  echo "Nope, not a directory"
+fi
+
+[ -f $USER_FILE_NAME ]
+  echo "Also, a regular file"
+
 echo
 
 # Exercise 7

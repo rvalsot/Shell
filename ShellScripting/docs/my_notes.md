@@ -131,6 +131,17 @@ To learn:
 * Make decisions based on it
 * Use them in your own script
 
+The exist status range from `0` to `255`, being `0` a success and any other, an error condition. To check the status for the previous code, use: `echo $?`
+
+__Logical Operators__
+
+| Operator | Use         |
+| -------- | ----------- |
+| `&&`     | Logical AND |
+| `||`     | Logical OR  |
+
+Note: second command in a `&&` will only execute if the first part return code is success! Analogously, if a `||` previous status is not success, second part will run.
+
 
 
 ## Miscellany
