@@ -221,6 +221,25 @@ Extras for the Course
 
 ## Wildcards
 
+_Wildcards_ are characters or strings used for pattern matching, in combination with commands such as `ls` or `rm`
+
+| Card | Use |
+| ---- | --- |
+| `*`  | Matches zero or more characters: `*.txt` or `a*` or `a*.txt` |
+| `?`  | Matches exactly one character: `a?` or `a?.txt` |
+| `[a]*` | Matches any of the characters included between the brackets. Matches exactly one character |
+| `[!]` | Matches any character not included between the brackets.
+| `[a-d]` | Will match all the characters between `a` and `d` : `{a,b,c,d}` |
+| ` \ `  |  Use if you want to match a wild card character: `*\?` |
+
+Sample:
+``` shell
+$ ls *.md
+#Outputs
+$ README.md
+```
+
+
 ## Templates
 
 A suggested Shell Script Order / Checklist is:
@@ -231,6 +250,14 @@ A suggested Shell Script Order / Checklist is:
 4. Functions (and their local variables first)
 5. Main script contents
 6. Exit with a defined `exit <STATUS>` at needed points.
+
+### Exam 4
+
+1. A wildcard is a character or string used for pattern matching: _True_
+2. The `*` wildcard matches: _Zero or more of any characters_
+3. The `?` wildcard matches: _Just one of any character_
+4. Which of the following match this wildcard `ca[nt]*`: _Would be_: `can`.
+5. Which of the following `ls` commands will display files that begin with the letters "a,b,c,d"? _It would be_: `ls [a-d]*`
 
 ## Miscellany
 
